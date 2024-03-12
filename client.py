@@ -17,7 +17,17 @@ def synchronize_time(server_address):
 
     #calculating synchronized clock time
     T_CLIENT = T_1 + (T_1 - T_0) / 2
-    print(f"Synchronized Client Clock Time: {T_CLIENT}")
+
+    #calculating process delay latency
+    delay_latency = T_CLIENT - T_0
+
+    #getting actual clock time at the client side
+    actual_time = time.time()
+
+    print(f"Server Time: {T_1}")
+    print(f"Process Delay Latency: {delay_latency}")
+    print(f"Actual Clock Time at Client: {actual_time}")
+    print(f"Synchronized Process Client Time: {T_CLIENT}")
 
     #closing socket
     client_socket.close()
